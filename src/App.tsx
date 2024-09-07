@@ -1,5 +1,6 @@
-import BoardTasks from "./components/BoardTask"
-import LayoutRoot from "./components/LayoutRoot"
+import BoardTasks from "./components/BoardTask";
+import LayoutRoot from "./components/LayoutRoot";
+
 
 function App() {
   return (

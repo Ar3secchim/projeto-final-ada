@@ -7,7 +7,7 @@ import {
   Wind,
 } from "lucide-react";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, Key, useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import CardTask from "./CardTodo";
 import Input from "./Input";
@@ -103,7 +103,7 @@ function BoardTasks() {
             <p> Nenhuma tarefa registrada</p>
           </span>
         ) : (
-          todosList.map((todo, index) => <CardTask
+          todosList.map((todo: { title: string, done: boolean, id: number }, index: Key | null | undefined) => <CardTask
             todos={todo}
             key={index}
             toogleTodoDone={() => toogleTodoDone(todo.id)}

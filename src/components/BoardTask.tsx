@@ -7,29 +7,27 @@ import {
   Wind,
 } from "lucide-react";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Button from "./Button";
+import CardTask from "./CardTodo";
 import Input from "./Input";
 
-const todos = [
-  {
-    title: "Criar tela de login",
-    done: false,
-  },
-  {
-    title: "Criar tela de cadastro",
-    done: false,
-  },
-];
 
 function BoardTasks() {
-  const [todosList, setTodos] = useState(todos);
-  const totalTodo = todos.length;
+  const storedTodos = localStorage.getItem("todos");
+  const initialTodos = storedTodos ? JSON.parse(storedTodos) : [];
+  const [todosList, setTodos] = useState(initialTodos);
+
+  const totalTodo = todosList.length;
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todosList));
+  }, [todosList]);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const addTodo = (title: string) => {
-    setTodos((prevState) => [...prevState, { title, done: false }]);
+    setTodos((prevState) => [...prevState, { title, done: false, id: prevState.length + 1 }]);
   };
 
   const handlerSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -39,6 +37,22 @@ function BoardTasks() {
       addTodo(inputRef.current.value);
       inputRef.current.value = "";
     }
+
+  }
+
+  const toogleTodoDone = (id: number) => {
+    setTodos((prevState) =>
+      prevState.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, done: !todo.done };
+        }
+        return todo;
+      })
+    );
+  }
+
+  const removeTodo = (id: number) => {
+    setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
   }
 
   return (
@@ -55,7 +69,7 @@ function BoardTasks() {
             placeholder="Digite sua tarefa"
             ref={inputRef}
           />
-          <Button className="md:w-60">Adicionar tarefas</Button>
+          <Button className="md:w-60 p-2">Adicionar tarefas</Button>
         </div>
       </form>
 
@@ -89,7 +103,13 @@ function BoardTasks() {
             <p> Nenhuma tarefa registrada</p>
           </span>
         ) : (
-          todosList.map((todo, index) => <span>{todo.title}</span>)
+          todosList.map((todo, index) => <CardTask
+            todos={todo}
+            key={index}
+            toogleTodoDone={() => toogleTodoDone(todo.id)}
+            removeTodo={() => removeTodo(todo.id)}
+          />
+          )
         )}
       </div>
     </>

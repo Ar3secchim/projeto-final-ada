@@ -13,3 +13,11 @@ phases:
     commands:
       - yarn build
       - echo "Build completed sucess..."
+  post_build:
+    commands:
+      - echo "Deploying to S3..."
+      - aws s3 sync --delete ./dist s3://$S3_BUCKET_NAME --recursive
+      - echo "Deploy completed sucess..."
+      - echo "Invalidating CloudFront cache..."
+      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+      - echo "CloudFront cache invalidation completed sucess..."

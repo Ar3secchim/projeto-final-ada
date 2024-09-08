@@ -16,8 +16,8 @@ phases:
   post_build:
     commands:
       - echo "Deploying to S3..."
-      - aws s3 sync --delete ./dist s3://$S3_BUCKET_NAME --recursive
+      - aws s3 sync --delete ./dist s3://$S3_BUCKET_NAME
       - echo "Deploy completed sucess..."
       - echo "Invalidating CloudFront cache..."
-      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/index.html"
       - echo "CloudFront cache invalidation completed sucess..."

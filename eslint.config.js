@@ -19,9 +19,26 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      "@typescript-eslint/no-explicit-any": "off",
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
+      ],
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-props-no-spreading": "off",
+      "no-empty": ["error", { allowEmptyCatch: true }],
+      "react/jsx-no-bind": "off",
+      "import/prefer-default-export": "off",
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          selector: "interface",
+          format: ["PascalCase"],
+          custom: {
+            regex: "^I[A-Z]",
+            match: true,
+          },
+        },
       ],
     },
   }

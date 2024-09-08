@@ -12,3 +12,4 @@ phases:
   build:
     commands:
       - yarn build
+      - echo "Build completed sucess..."

@@ -20,4 +20,4 @@ phases:
       - echo "Deploy completed sucess..."
       - echo "Invalidating CloudFront cache..."
       - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/index.html"
-      - echo "CloudFront cache invalidation completed sucess..."
+      - echo "CloudFront cache invalidation completed sucess! ✅"

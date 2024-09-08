@@ -31,7 +31,7 @@ jobs:
         run: yarn typecheck
 
       - name: Tests
-        run: yarn ci:test
+        run: yarn test:ci
 
   build:
     runs-on: ubuntu-latest

@@ -1,0 +1,34 @@
+name: Project Ada CI
+
+on:
+  push:
+    branches: ["main", "develop"]
+  pull_request:
+    branches: ["main", "develop"]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --from-lock-file
+
+      - name: Linting
+        run: yarn ci:lint
+
+      - name: Formatting
+        run: yarn ci:format
+
+      - name: Type checking
+        run: yarn typecheck
+
+      - name: Tests
+        run: yarn test:ci

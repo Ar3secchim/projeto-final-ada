@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build": "tsc  && vite build",
+    "preview": "vite preview",
+    "ci:lint": "eslint .",
+    "ci:format": "eslint --fix .",
+    "typecheck": "tsc --noEmit",
+    "test:ci": "echo 'No tests yet'"
   },
   "dependencies": {
     "lucide-react": "^0.438.0",

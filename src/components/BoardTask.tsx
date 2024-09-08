@@ -27,7 +27,7 @@ function BoardTasks() {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const addTodo = (title: string) => {
-    setTodos((prevState) => [...prevState, { title, done: false, id: prevState.length + 1 }]);
+    setTodos((prevState: string | any[]) => [...prevState, { title, done: false, id: prevState.length + 1 }]);
   };
 
   const handlerSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -41,7 +41,7 @@ function BoardTasks() {
   }
 
   const toogleTodoDone = (id: number) => {
-    setTodos((prevState) =>
+    setTodos((prevState: any[]) =>
       prevState.map((todo) => {
         if (todo.id === id) {
           return { ...todo, done: !todo.done };
@@ -52,7 +52,7 @@ function BoardTasks() {
   }
 
   const removeTodo = (id: number) => {
-    setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
+    setTodos((prevState: any[]) => prevState.filter((todo) => todo.id !== id));
   }
 
   return (

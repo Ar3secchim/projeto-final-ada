@@ -28,7 +28,7 @@ jobs:
         run: yarn ci:format
 
       - name: Type checking
-        run: yarn ci:typecheck
+        run: yarn typecheck
 
       - name: Tests
         run: yarn ci:test

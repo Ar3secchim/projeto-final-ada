@@ -82,7 +82,7 @@ function BoardTasks() {
           {totalTodo === 0 && (
             <span className="text-xs flex items-center rounded-lg bg-emerald-100 gap-2 p-2 h-fit">
               <CircleOff size={16} />
-              Nenhuma tarefa encontrada
+              Nenhuma tarefa
             </span>
           )}
 

@@ -1,10 +1,14 @@
+import BoardTasks from "./components/BoardTask";
+import LayoutRoot from "./components/LayoutRoot";
+
+
 function App() {
   return (
-    <div className="bg-slate-50">
-      <header className="text-red-700">
-        <h1>React App</h1>
-      </header>
-    </div>
+    <LayoutRoot>
+      <div className="mx-6 lg:w-3/5 lg:mx-auto">
+        <BoardTasks />
+      </div>
+    </LayoutRoot>
   )
 }
 

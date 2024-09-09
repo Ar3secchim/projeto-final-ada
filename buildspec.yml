@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+  pre_build:
+    commands:
+      - echo "Install dependencies..."
+      - yarn install --frozen-lockfile
+      - echo "Dependencies completed sucess..."
+  build:
+    commands:
+      - yarn build
+      - echo "Build completed sucess..."
+  post_build:
+    commands:
+      - echo "Deploying to S3..."
+      - aws s3 sync --delete ./dist s3://$S3_BUCKET_NAME
+      - echo "Deploy completed sucess..."
+      - echo "Invalidating CloudFront cache..."
+      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/index.html"
+      - echo "CloudFront cache invalidation completed sucess! ✅"

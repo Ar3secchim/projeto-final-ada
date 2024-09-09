@@ -8,7 +8,6 @@ Este projeto tem como objetivo criar uma aplicação web moderna utilizando as t
 
 ## Tecnologias Utilizadas
 
-- npm: Gerenciador de pacotes para instalar e gerenciar as dependências do projeto.
 - React: Biblioteca JavaScript para construir interfaces de usuário interativas.
 - TypeScript: Superset do JavaScript que adiciona tipagem estática ao código.
 - Yarn: Gerenciador de pacotes alternativo ao npm, com recursos adicionais de desempenho e segurança.

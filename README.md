@@ -2,8 +2,6 @@
 
 [LINK DO DEPLOY DA APLICAÇÃO](https://dbw0yn60m3jq6.cloudfront.net)
 
-Este é o README do projeto final Ada, que tem como objetivo explicar todo o projeto e fornecer comandos detalhados de como rodar o projeto em sua máquina local. Além disso, também descreveremos todo o processo de CI (Integração Contínua) e de build pela AWS.
-
 ## Descrição do Projeto
 
 Este projeto tem como objetivo criar uma aplicação web moderna utilizando as tecnologias React, TypeScript e Yarn. A aplicação será um sistema de gerenciamento de tarefas, onde os usuários poderão criar, editar e excluir tarefas.

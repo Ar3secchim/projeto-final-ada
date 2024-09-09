@@ -14,6 +14,10 @@ Este projeto tem como objetivo criar uma aplicação web moderna utilizando as t
 
 Esperamos que este projeto seja uma oportunidade de aprendizado e prática das tecnologias mencionadas, além de fornecer uma aplicação útil para os usuários finais.
 
+## Caso queira comtruibuir
+
+Veja mais detalhes sobre **Como contribuir** no arquivo [CONTRIBUTING.md](CONTRIBUTING.md)
+
 ## Como Rodar o Projeto Localmente
 
 Siga os passos abaixo para rodar o projeto em sua máquina local:
